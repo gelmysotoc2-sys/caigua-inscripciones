@@ -202,6 +202,9 @@
   .ccard h3{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
   .ccard a{display:block;color:#fff;font-size:15.5px;text-decoration:none;padding:3px 0}
   .ccard p{color:rgba(255,255,255,.85);font-size:14.5px}
+  .wa-card{background:rgba(37,211,102,.14);border-color:rgba(37,211,102,.4)}
+  .ccard a.big{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:.01em}
+  .tag{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-left:6px}
   .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
   .chip{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:9px 15px;font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;background:rgba(255,255,255,.05)}
 
@@ -486,16 +489,16 @@
       <h2>Escribinos o visitanos</h2>
       <p class="sub">Con gusto resolvemos cualquier duda antes de inscribir.</p>
 
-      <div class="ccard">
-        <h3>Preprimaria y Primaria</h3>
-        <a href="https://wa.me/50246982554" target="_blank" rel="noopener">WhatsApp 4698-2554</a>
-        <a href="tel:+50279450296">Tel. 7945-0296</a>
+      <div class="ccard wa-card">
+        <h3>WhatsApp</h3>
+        <a href="https://wa.me/50231133596" target="_blank" rel="noopener">3113-3596 <span class="tag">Básico y Diversificado</span></a>
+        <a href="https://wa.me/50246982554" target="_blank" rel="noopener">4698-2554 <span class="tag">Preprimaria y Primaria</span></a>
       </div>
       <div class="ccard">
-        <h3>Básico y Diversificado</h3>
-        <a href="https://wa.me/50231133596" target="_blank" rel="noopener">WhatsApp 3113-3596</a>
-        <a href="tel:+50279450840">Tel. 7945-0840</a>
-        <a href="tel:+50279451526">Tel. 7945-1526</a>
+        <h3>Teléfonos</h3>
+        <a href="tel:+50279450296">7945-0296 <span class="tag">Preprimaria y Primaria</span></a>
+        <a href="tel:+50279450840">7945-0840 <span class="tag">Básico y Diversificado</span></a>
+        <a href="tel:+50279451526">7945-1526 <span class="tag">Básico y Diversificado</span></a>
       </div>
       <div class="ccard">
         <h3>Dirección</h3>
@@ -526,7 +529,7 @@
 
 <script>
 (function(){
-  var NUM = { pp:"50246982554", bd:"50231133596" };
+  var WA = "50231133596";
   var stack = ["s-portada"];
   var msg = "";
 
@@ -588,8 +591,6 @@
   document.getElementById("next2").addEventListener("click", function(){
     if(!check(["encargado","tel"])) return;
 
-    var sel = document.getElementById("grado");
-    var area = sel.options[sel.selectedIndex].getAttribute("data-area") || "bd";
     var tipoEl = document.querySelector('input[name="tipo"]:checked');
 
     var L = [];
@@ -611,7 +612,7 @@
 
     msg = L.join("\n");
     document.getElementById("preview").textContent = msg;
-    document.getElementById("waLink").href = "https://wa.me/" + NUM[area] + "?text=" + encodeURIComponent(msg);
+    document.getElementById("waLink").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
     go("s-listo");
   });
 
